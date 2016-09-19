@@ -1,9 +1,9 @@
-﻿
+﻿using System;
 namespace Backend.Contracts
 {
     public class Kunde
     {
-        public int Id { get; set; }
+        public Guid  Id { get; set; }
 
         public string Name { get; set; }
 

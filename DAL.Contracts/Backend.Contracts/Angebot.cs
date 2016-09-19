@@ -14,5 +14,7 @@ namespace Backend.Contracts
         public double Gesamt { get; set; }
 
         public DateTime Datum { get; set; }
+
+        public string Betreff { get; set; }
     }
 }
