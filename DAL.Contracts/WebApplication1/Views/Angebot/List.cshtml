@@ -1,0 +1,27 @@
+﻿@using Backend.Contracts
+@model List<Angebot>
+
+<h1>ANGEBOTSÜBERSICHT</h1>
+<a href="">+ neu</a>
+<table>
+    <tr>
+        <th>ANGEBOTSNUMMER / BETREFF</th>
+        <th>KUNDE</th>
+        <th>DATUM</th>
+        <th>BETRAG</th>
+    </tr>
+
+    @foreach (Angebot angebot in Model)
+    {
+        <tr>
+        <td>
+            @angebot.Id
+            @angebot.
+        </td>
+        <td>@angebot.KundeId</td>
+            <td>@angebot.Datum</td>
+            <td>@angebot.Gesamt</td>
+    </tr>
+    }
+  
+</table>
