@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Backend.Contracts.Kunde>
+
+@{
+    ViewBag.Title = "KUNDENÜBERSICHT";
+}
+
+<h2>KUNDENÜBERSICHT</h2>
+
+<p>
+    @Html.ActionLink("+NEU", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            Adresse
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Telefon )
+        </th>
+        <th>
+            E-Mail
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Strasse),
+            @Html.DisplayFor(modelItem => item.Plz)
+            @Html.DisplayFor(modelItem => item.Ort)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefon)
+        </td>
+        <td>
+            @Html.DisplayFor( modelItem => item.Email )
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+        </td>
+    </tr>
+}
+
+</table>
