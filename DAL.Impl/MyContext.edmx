@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Angebote">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="KundeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Datum" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Angebotspositionen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AngebotID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Freitext" Type="nvarchar(max)" />
+          <Property Name="Reis" Type="money" />
+        </EntityType>
+        <EntityType Name="Kunden">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Plz" Type="varchar" MaxLength="10" />
+          <Property Name="Strasse" Type="nvarchar" MaxLength="500" />
+          <Property Name="HNr" Type="varchar" MaxLength="10" />
+          <Property Name="Ort" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tel" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="500" />
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Angebote_Kunden">
+          <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
+          <End Role="Angebote" Type="Self.Angebote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunden">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Angebote">
+              <PropertyRef Name="KundeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Angebotspositionen_Angebote">
+          <End Role="Angebote" Type="Self.Angebote" Multiplicity="1" />
+          <End Role="Angebotspositionen" Type="Self.Angebotspositionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Angebote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Angebotspositionen">
+              <PropertyRef Name="AngebotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="Angebote" EntityType="Self.Angebote" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Angebotspositionen" EntityType="Self.Angebotspositionen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kunden" EntityType="Self.Kunden" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Angebote_Kunden" Association="Self.FK_Angebote_Kunden">
+            <End Role="Kunden" EntitySet="Kunden" />
+            <End Role="Angebote" EntitySet="Angebote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Angebotspositionen_Angebote" Association="Self.FK_Angebotspositionen_Angebote">
+            <End Role="Angebote" EntitySet="Angebote" />
+            <End Role="Angebotspositionen" EntitySet="Angebotspositionen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Angebote">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="KundeID" Type="Guid" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Kunden" Relationship="Self.FK_Angebote_Kunden" FromRole="Angebote" ToRole="Kunden" />
+          <NavigationProperty Name="Angebotspositionen" Relationship="Self.FK_Angebotspositionen_Angebote" FromRole="Angebote" ToRole="Angebotspositionen" />
+        </EntityType>
+        <EntityType Name="Angebotspositionen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AngebotID" Type="Guid" Nullable="false" />
+          <Property Name="Freitext" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Reis" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Angebote" Relationship="Self.FK_Angebotspositionen_Angebote" FromRole="Angebotspositionen" ToRole="Angebote" />
+        </EntityType>
+        <EntityType Name="Kunden">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Plz" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Strasse" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HNr" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Ort" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Angebote" Relationship="Self.FK_Angebote_Kunden" FromRole="Kunden" ToRole="Angebote" />
+        </EntityType>
+        <Association Name="FK_Angebote_Kunden">
+          <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
+          <End Role="Angebote" Type="Self.Angebote" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kunden">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Angebote">
+              <PropertyRef Name="KundeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Angebotspositionen_Angebote">
+          <End Role="Angebote" Type="Self.Angebote" Multiplicity="1" />
+          <End Role="Angebotspositionen" Type="Self.Angebotspositionen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Angebote">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Angebotspositionen">
+              <PropertyRef Name="AngebotID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="teamtageEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Angebote" EntityType="Self.Angebote" />
+          <EntitySet Name="Angebotspositionen" EntityType="Self.Angebotspositionen" />
+          <EntitySet Name="Kunden" EntityType="Self.Kunden" />
+          <AssociationSet Name="FK_Angebote_Kunden" Association="Self.FK_Angebote_Kunden">
+            <End Role="Kunden" EntitySet="Kunden" />
+            <End Role="Angebote" EntitySet="Angebote" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Angebotspositionen_Angebote" Association="Self.FK_Angebotspositionen_Angebote">
+            <End Role="Angebote" EntitySet="Angebote" />
+            <End Role="Angebotspositionen" EntitySet="Angebotspositionen" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="teamtageEntities">
+          <EntitySetMapping Name="Angebote">
+            <EntityTypeMapping TypeName="Models.Angebote">
+              <MappingFragment StoreEntitySet="Angebote">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KundeID" ColumnName="KundeID" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Angebotspositionen">
+            <EntityTypeMapping TypeName="Models.Angebotspositionen">
+              <MappingFragment StoreEntitySet="Angebotspositionen">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AngebotID" ColumnName="AngebotID" />
+                <ScalarProperty Name="Freitext" ColumnName="Freitext" />
+                <ScalarProperty Name="Reis" ColumnName="Reis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kunden">
+            <EntityTypeMapping TypeName="Models.Kunden">
+              <MappingFragment StoreEntitySet="Kunden">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Plz" ColumnName="Plz" />
+                <ScalarProperty Name="Strasse" ColumnName="Strasse" />
+                <ScalarProperty Name="HNr" ColumnName="HNr" />
+                <ScalarProperty Name="Ort" ColumnName="Ort" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
