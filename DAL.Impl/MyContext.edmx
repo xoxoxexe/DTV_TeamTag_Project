@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Angebote">
           <Key>
             <PropertyRef Name="ID" />
@@ -12,6 +12,8 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="KundeID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Datum" Type="datetime" Nullable="false" />
+          <Property Name="Angebotsnummer" Type="nvarchar" MaxLength="500" />
+          <Property Name="Betreff" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Angebotspositionen">
           <Key>
@@ -72,8 +74,7 @@
             <End Role="Angebotspositionen" EntitySet="Angebotspositionen" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -86,6 +87,8 @@
           <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Kunden" Relationship="Self.FK_Angebote_Kunden" FromRole="Angebote" ToRole="Kunden" />
           <NavigationProperty Name="Angebotspositionen" Relationship="Self.FK_Angebotspositionen_Angebote" FromRole="Angebote" ToRole="Angebotspositionen" />
+          <Property Name="Angebotsnummer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Betreff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Angebotspositionen">
           <Key>
@@ -157,6 +160,8 @@
           <EntitySetMapping Name="Angebote">
             <EntityTypeMapping TypeName="Models.Angebote">
               <MappingFragment StoreEntitySet="Angebote">
+                <ScalarProperty Name="Betreff" ColumnName="Betreff" />
+                <ScalarProperty Name="Angebotsnummer" ColumnName="Angebotsnummer" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KundeID" ColumnName="KundeID" />
                 <ScalarProperty Name="Datum" ColumnName="Datum" />

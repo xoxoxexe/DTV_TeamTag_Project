@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using Backend.Contracts;
+using System.Collections.Generic;
 
 namespace WebApplication1.Controllers
 {
@@ -19,9 +20,18 @@ namespace WebApplication1.Controllers
 
        public ActionResult List()
         {
-            //IAngebotFacade angebotsFacade;
-            //List<Angebot> angebote = angebotsFacade.
-            return View();
+
+            List<Angebot> angebote = new List<Angebot>
+            {
+                new Angebot
+                {
+                    Id = 1,
+                    KundeId = 2,
+                    Gesamt = 3000,
+                    Datum = DateTime.Now
+                }
+            };
+            return View( angebote );
         }
 
         public ActionResult Create()

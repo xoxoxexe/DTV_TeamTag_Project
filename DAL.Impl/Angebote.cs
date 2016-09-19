@@ -23,7 +23,11 @@ namespace DAL.Impl
         public System.Guid ID { get; set; }
         public System.Guid KundeID { get; set; }
         public System.DateTime Datum { get; set; }
-    
+        public string Angebotsnummer { get; set; }
+        public string Betreff { get; set; }
+
+
+
         public virtual Kunden Kunden { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Angebotspositionen> Angebotspositionen { get; set; }

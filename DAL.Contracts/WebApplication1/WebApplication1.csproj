@@ -169,6 +169,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KundenController.cs" />
+
     <Compile Include="Controllers\AngebotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,6 +238,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Kunden\Index.cshtml" />
+    <Content Include="Views\Kunden\Create.cshtml" />
     <Content Include="Views\Angebot\List.cshtml" />
     <Content Include="Views\Angebot\Create.cshtml" />
   </ItemGroup>
@@ -252,7 +256,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Backend.Contracts\Backend.Contracts.csproj">
-      <Project>{E8E857F1-2DE1-403C-BF6C-C6CE684E09F7}</Project>
+      <Project>{e8e857f1-2de1-403c-bf6c-c6ce684e09f7}</Project>
       <Name>Backend.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL.Contracts\DAL.Contracts.csproj">
