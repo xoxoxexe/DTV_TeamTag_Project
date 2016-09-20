@@ -49,7 +49,9 @@ namespace BackendImpl.Test
         {
             IAngebotFacade angebotFacade = new AngebotFacade();
             angebotFacade.Save(new Angebot() { Betreff = "Test Angebot", Datum = DateTime.Now, Gesamt = 100, KundeId = new Guid(), Positionen = new List<Position>() { new Position() { Freitext = "TestPosition", Preis = 100 } } });
+            var restul = angebotFacade.GetAngebote();
 
+            var bla = 0;
             //
             // TODO: Add test logic here
             //
