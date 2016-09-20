@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
             List<Angebot> angebote;
             IAngebotFacade angebotFacade = new AngebotFacade();   
             angebote = angebotFacade.GetAngebote().ToList();
-            return View( angebote );
+            return View( "List", angebote );
         }
 
         public ActionResult Create()
@@ -79,8 +79,21 @@ namespace WebApplication1.Controllers
             ViewBag.AlleKunden = alleKunden;
         }
 
+        public ActionResult RechnungErzeugen(String  angebotId)
+        {
+
+            IAngebotFacade angebotFacade = new AngebotFacade();
+
+            angebotFacade.CreateBill(new Angebot
+            {
+                Id = Guid.Parse(angebotId)
+            });
+
+            return List();
+        }
 
     }
+
 
     public static class Pdf
     {

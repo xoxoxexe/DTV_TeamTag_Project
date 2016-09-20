@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Collections.Generic;
 
 namespace Backend.Contracts
@@ -9,5 +10,7 @@ namespace Backend.Contracts
         void Save(Angebot angebot);
 
         IEnumerable<Angebot> GetAngebote();
+
+        void CreateBill(Angebot angebot);
     }
 }
