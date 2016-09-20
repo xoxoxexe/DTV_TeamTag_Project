@@ -43,12 +43,57 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CreateWithPdf(Angebot angebot)
+        {
+            IAngebotFacade angebotFacade = new AngebotFacade();
+            angebotFacade.Save(angebot);
+            String url2pdf = Pdf.Create( angebot );
+            return RedirectToAction(url2pdf);
+        }
+
+        [HttpPost]
+        public ActionResult CreateWithMail(Angebot angebot)
+        {
+            IAngebotFacade angebotFacade = new AngebotFacade();
+            angebotFacade.Save(angebot);
+            Mail.SEnd();           
+            return RedirectToAction("MailAction");
+        }
+
+        public ActionResult PdfAction()
+        {
+            return View();
+        }
+
+        public ActionResult MailAction()
+        {
+            return View();
+        }
+
 
         private void LoadKunden()
         {
             IKundenFacade kundenFacade = new KundenFacade();
             IEnumerable<Kunde> alleKunden = kundenFacade.GetKunden();
             ViewBag.AlleKunden = alleKunden;
+        }
+
+
+    }
+
+    public static class Pdf
+    {
+        public static string Create( Angebot angebot)
+        {
+            return "PdfAction";       
+        }
+    }
+
+    public static class Mail
+    {
+        public static void SEnd()
+        {
         }
     }
 }
