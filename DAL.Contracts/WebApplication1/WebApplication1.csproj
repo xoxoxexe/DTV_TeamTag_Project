@@ -185,6 +185,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Css\customStyles.css" />
+    <Content Include="Design\icon_rechnung.png" />
     <Content Include="Design\Icon_Stift-04.png" />
     <Content Include="Design\kalkool_logo.png" />
     <Content Include="Design\landscape_photography_black_and_white_wallpaper_2014_hd.jpg" />

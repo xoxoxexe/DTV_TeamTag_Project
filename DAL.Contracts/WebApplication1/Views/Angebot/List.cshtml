@@ -4,37 +4,41 @@
 <h1>ANGEBOTSÜBERSICHT</h1>
 <a href='@Url.Action("Create", "Angebot")'>+ neu</a>
 <table>
-    <tr>
-        <th>ANGEBOTSNUMMER / BETREFF</th>
-        <th>KUNDE</th>
-        <th>DATUM</th>
-        <th>BETRAG</th>
-    </tr>
-
-    @foreach (Angebot angebot in Model)
-    {
         <tr>
-        <td>
-            @angebot.AngebotsNummer<br />
-            @foreach (Position p in angebot.Positionen)
-            {
-                <span>@p.Freitext</span><span>@p.Preis</span>                
+            <th>ANGEBOTSNUMMER / BETREFF</th>
+            <th>KUNDE</th>
+            <th>DATUM</th>
+            <th>BETRAG</th>
+        </tr>
+
+        @foreach (Angebot angebot in Model)
+        {
+          
+                <tr>
+                    <td>
+                        @angebot.AngebotsNummer<br />
+                        @foreach (Position p in angebot.Positionen)
+                        {
+                            <span>@p.Freitext</span><span>@p.Preis</span>
+                        }
+                    </td>
+                    <td>@GetKundeById(angebot.KundeId)</td>
+                    <td>@angebot.Datum</td>
+                    <td>@angebot.Gesamt</td>
+                    <td> <a href="RechnungErzeugen?angebotId=@angebot.Id" ><img src="~/Design/icon_rechnung.png" /></a></td>
+                    
+                </tr>
+            
             }
-        </td>
-        <td>@GetKundeById(angebot.KundeId)</td>
-            <td>@angebot.Datum</td>
-            <td>@angebot.Gesamt</td>
-    </tr>
-    }
-  
+
 </table>
 
-@functions {
-public string GetKundeById(Guid id)
+    @functions {
+        public string GetKundeById(Guid id)
         {
             IKundenFacade facade = new Backend.Impl.KundenFacade();
             IEnumerable<Kunde> alleKunden = facade.GetKunden();
             Kunde kunde = alleKunden.First(k => k.Id == id);
             return kunde.Name;
-        } } 
+        } }
 

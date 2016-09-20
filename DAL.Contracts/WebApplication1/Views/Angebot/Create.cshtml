@@ -1,11 +1,32 @@
 ﻿@using Backend.Contracts;
 
 <script>
-    var count=0;
+    var count = 0;
+
+    function GesamtPreisBerechnung()
+    {
+        
+        var gesamtPreis = 0;
+
+       
+        for(var i=0;i<=count;i++)
+        {
+            
+            var preis = parseInt( $("#position" + count)[0].value);
+
+          
+            gesamtPreis = parseInt(gesamtPreis) + parseInt(preis);
+        }
+   
+
+        $("#Gesamtpreis")[0].value = gesamtPreis;
+        
+    }
+
     function  addNewLine()
     {
         count++;
-        $( ".position" ).append( '<br><input type="text" name="Positionen['+count+'].Freitext" /> <input type="text" name="Positionen[' +count+'].Preis" /></br>' );
+        $( ".position" ).append( '<br><input type="text" name="Positionen['+count+'].Freitext" id="position'+count+'" /> <input type="text" name="Positionen[' +count+'].Preis" /></br>' );
     }
 
     function pdfCreate()
@@ -41,18 +62,18 @@
     Freitext / Preis:<br />
     
     <section class="position">
-        <br ><input type="text" name="Positionen[0].Freitext" /> <input type="text" name="Positionen[0].Preis" /> <a href="javascript:addNewLine()">+</a></br>
+        <br ><input type="text" name="Positionen[0].Freitext" /> <input type="text" name="Positionen[0].Preis" id="position0" onblur="javascript: GesamtPreisBerechnung();" /> <a href="javascript:addNewLine()">+</a></br>
     
     </section>
 
     <br />
-    Gesamt: 2500€<br />
+    Gesamt: <input type="text" id="Gesamtpreis" value="gesamtPreis"/><br />
     <br />
     Datum: <br />
     <input type="text" name="Datum" value="21.6.2016" /><br />
     <br />
-    <input type="submit">speichern</input><br />
+    <input type="submit" value="speichern" /><br />
         <button onclick="javascript:pdfCreate()">speichern + pdf</button><br />
         <button onclick="javascript:mailCreate()">speichern + versenden</button><br />
-        <button>abbrechen</button>
+        <button onclick="javaschript: location.href = 'http://localhost:6736/Angebot/List'">abbrechen</button> 
     </form>
