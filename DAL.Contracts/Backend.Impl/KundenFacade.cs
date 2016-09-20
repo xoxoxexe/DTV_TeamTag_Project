@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using Backend.Contracts;
 using DAL.Impl;
 using System.Linq;
@@ -47,7 +48,7 @@ namespace Backend.Impl
         {
             using (var context = new teamtageEntities())
             {
-                context.Kunden.Add(new Kunden() { Email = kunde.Email, Name = kunde.Name, Ort = kunde.Ort, Plz = kunde.Plz, Strasse = kunde.Strasse, Tel = kunde.Telefon });
+                context.Kunden.AddOrUpdate(new Kunden() { Email = kunde.Email, Name = kunde.Name, Ort = kunde.Ort, Plz = kunde.Plz, Strasse = kunde.Strasse, Tel = kunde.Telefon });
                 context.SaveChanges();
             }
         }
