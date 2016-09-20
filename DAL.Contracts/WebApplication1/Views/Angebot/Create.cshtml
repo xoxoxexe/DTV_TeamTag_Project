@@ -7,9 +7,27 @@
         count++;
         $( ".position" ).append( '<br><input type="text" name="Positionen['+count+'].Freitext" /> <input type="text" name="Positionen[' +count+'].Preis" /></br>' );
     }
+
+    function pdfCreate()
+    {
+        $("form")[0].action = "CreateWithPdf";
+        $("form")[0].submit();
+    }
+  
+    function mailCreate() {
+        
+        var r = window.confirm("Möchten Sie das Angebot wirklich speichern und versenden?");
+        if (r == true)
+        {
+
+            $("form")[0].action = "CreateWithMail";
+            $("form")[0].submit();
+        }
+    }
     
 </script>
-<form method="post" name="angebote">
+
+<form method="post" name="angebote" action="Create">
     <h1>NEUES ANGEBOT</h1>
     <h3>Kunde</h3>
     <select name="KundeId">
@@ -17,6 +35,7 @@
         {
             <option value="@k.Id">@k.Name</option>
         }
+
     </select>
     <br />
     Freitext / Preis:<br />
@@ -33,7 +52,7 @@
     <input type="text" name="Datum" value="21.6.2016" /><br />
     <br />
     <input type="submit">speichern</input><br />
-    <button>speichern + pdf</button><br />
-    <button>speichern + versenden</button><br />
-    <button>abbrechen</button>
-</form>
+        <button onclick="javascript:pdfCreate()">speichern + pdf</button><br />
+        <button onclick="javascript:mailCreate()">speichern + versenden</button><br />
+        <button>abbrechen</button>
+    </form>

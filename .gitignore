@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/DAL.Contracts/Backend.Impl/MapperConfig.cs

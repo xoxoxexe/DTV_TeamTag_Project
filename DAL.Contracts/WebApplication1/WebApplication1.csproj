@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\FinanzverwaltungController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KundenController.cs" />
     <Compile Include="Controllers\AngebotController.cs" />
@@ -250,9 +251,12 @@
     <Content Include="Views\Angebot\List.cshtml" />
     <Content Include="Views\Angebot\Create.cshtml" />
     <Content Include="Views\Kunden\Edit.cshtml" />
+    <Content Include="Views\Angebot\PdfAction.cshtml" />
+    <Content Include="Views\Angebot\MailAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Finanzverwaltung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
