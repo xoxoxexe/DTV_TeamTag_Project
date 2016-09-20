@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using AutoMapper;
 using Backend.Contracts;
 using DAL.Impl;
 
@@ -57,10 +56,9 @@ namespace Backend.Impl
         {
             Rechnungen rechnung = new Rechnungen();
 
-
             using (var context = new teamtageEntities1())
             {
-                Angebote foundAngebot = context.Angebote.Find(angebot);
+                Angebote foundAngebot = context.Angebote.Find(angebot.Id);
 
                 rechnung = new Rechnungen()
                 {
@@ -70,6 +68,9 @@ namespace Backend.Impl
                     KundeID = foundAngebot.KundeID,
                     Rechnungspositionen = MapPositions(foundAngebot.Angebotspositionen)
                 };
+
+                context.Rechnungen.Add(rechnung);
+                context.SaveChanges();
             }
         }
 
