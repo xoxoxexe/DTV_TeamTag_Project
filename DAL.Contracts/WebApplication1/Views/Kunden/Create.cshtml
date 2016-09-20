@@ -79,66 +79,80 @@
         <div class="form-group">
             <table>
                 <tr>
-                    <td>@Html.LabelFor( model => model.Plz, htmlAttributes: new
+                    <td>
+                        @Html.LabelFor( model => model.Plz, htmlAttributes: new
                    {
                        @class = "control-label col-md-2"
-                   } )</td>
-                    <td>@Html.LabelFor( model => model.Ort, htmlAttributes: new
-                    {
-                        @class = "control-label col-md-2"
-                    } )</td>
+                   } )
+                    </td>
+                    <td>-</td>
+                    <td>
+                        @Html.LabelFor( model => model.Ort, htmlAttributes: new
+               {
+                   @class = "control-label col-md-2"
+               } )
+                    </td>
                 </tr>
                 <tr>
-                    <td>@Html.EditorFor( model => model.Plz, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control"
-                       }
-                   } )
-                    @Html.ValidationMessageFor( model => model.Plz, "", new
+                    <td>
+                        @Html.EditorFor( model => model.Plz, new
            {
-               @class = "text-danger"
-           } )</td>
-                    <td>@Html.EditorFor( model => model.Ort, new
-                   {
-                       htmlAttributes = new
-                       {
-                           @class = "form-control"
-                       }
-                   } )
-                    @Html.ValidationMessageFor( model => model.Ort, "", new
+               htmlAttributes = new
+               {
+                   @class = "form-control"
+               }
+           } )
+                        @Html.ValidationMessageFor( model => model.Plz, "", new
+       {
+           @class = "text-danger"
+       } )
+                    </td>
+                    <td>-</td>
+                    <td>
+                        @Html.EditorFor( model => model.Ort, new
+       {
+           htmlAttributes = new
            {
-               @class = "text-danger"
-           } )</td>
+               @class = "form-control"
+           }
+       } )
+                        @Html.ValidationMessageFor( model => model.Ort, "", new
+   {
+       @class = "text-danger"
+   } )
+                    </td>
                 </tr>
             </table>
         </div>
 
         <div class="form-group">
             @Html.LabelFor( model => model.Telefon, htmlAttributes: new
-       {
-           @class = "control-label col-md-2"
-       } )
+{
+    @class = "control-label col-md-2"
+} )
             <div class="col-md-10">
                 @Html.EditorFor( model => model.Telefon, new
-           {
-               htmlAttributes = new
-               {
-                   @class = "form-control"
-               }
-           } )<br />
+   {
+       htmlAttributes = new
+       {
+           @class = "form-control"
+       }
+   } )<br />
                 @Html.ValidationMessageFor( model => model.Telefon, "", new
-           {
-               @class = "text-danger"
-           } )
+   {
+       @class = "text-danger"
+   } )
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Speichern" class="btn btn-default" />
-                @Html.ActionLink( "Abbrechen", "Index" )
+                @Html.ActionLink( "Abbrechen", "Index",new
+           {controller = "Kunden"}, new
+                    {
+                        @class = "btn btn-default"
+                    } )
             </div>
         </div>
     </div>
