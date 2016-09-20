@@ -65,7 +65,7 @@ namespace WebApplication1.Controllers
                 kundenFacade.Save( kunde );
                 return RedirectToAction( "Index" );
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
