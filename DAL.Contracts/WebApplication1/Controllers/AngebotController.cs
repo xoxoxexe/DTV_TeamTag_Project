@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
 
             //IAngebotFacade angebotFacade = new AngebotFacade();
 
-            //angebote = angebotFacade.GetAngebote().ToList();
+            angebote = angebotFacade.GetAngebote().ToList();
 
 
             return View( angebote );
