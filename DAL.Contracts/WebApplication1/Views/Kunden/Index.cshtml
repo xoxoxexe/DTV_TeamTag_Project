@@ -43,7 +43,10 @@
             @Html.DisplayFor( modelItem => item.Email )
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new
+       {
+           @class = "editButton"
+       } )
         </td>
     </tr>
 }
