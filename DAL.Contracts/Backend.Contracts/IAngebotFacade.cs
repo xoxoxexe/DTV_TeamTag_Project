@@ -9,5 +9,7 @@ namespace Backend.Contracts
         void Save(Angebot angebot);
 
         IEnumerable<Angebot> GetAngebote();
+
+        void CreateBill(Angebot angebot);
     }
 }

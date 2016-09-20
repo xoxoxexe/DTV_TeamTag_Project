@@ -1,0 +1,89 @@
+﻿@model WebApplication1.Models.Finanzen
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor( model => model.AktuellerSaldo )
+        </dt>
+
+        <dd>
+            
+
+            @{
+                if ( Model.AktuellerSaldo < 0 )
+                {
+                    <span style="color: #f00">@Model.AktuellerSaldo</span>
+                }
+                else if(Model.AktuellerSaldo>0)
+                {
+                    <span style="color: #0f0">@Model.AktuellerSaldo</span>
+                }
+                else
+                {
+                    <span style="color:#000000">@Model.AktuellerSaldo</span>
+                }
+            }
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor( model => model.Rechnungen.First().Monat )
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Rechnungen.First().Tag )
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Rechnungen.First().BelegNummer )
+        </th>
+        <th>
+            Kunde / Lieferant
+        </th>
+        <th>
+            Umsätze
+        </th>
+    </tr>
+    @foreach ( var item in Model.Rechnungen )
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor( modelItem => item.Monat )
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.Tag )
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.BelegNummer )
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.Name )
+            </td>
+            <td>
+                
+                @{
+                    if ( item.Preis < 0 )
+                    {
+                        <span style="color: #f00">@item.Preis</span>
+                    }
+                    else if ( item.Preis > 0 )
+                    {
+                        <span style="color: #0f0">@item.Preis</span>
+                    }
+                    else
+                    {
+                        <span style="color:#000000">@item.Preis</span>
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+

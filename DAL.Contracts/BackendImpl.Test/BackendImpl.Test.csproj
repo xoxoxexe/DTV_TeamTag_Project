@@ -61,6 +61,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FinazenFacadeTest.cs" />
     <Compile Include="AusgansRechnungenFacadeTest.cs" />
     <Compile Include="AngebotFacadeTest.cs" />
     <Compile Include="KundenFacadeTest.cs" />
