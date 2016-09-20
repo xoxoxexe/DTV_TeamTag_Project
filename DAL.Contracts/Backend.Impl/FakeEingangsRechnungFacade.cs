@@ -16,7 +16,7 @@ namespace Backend.Impl
                     Datum = new DateTime(2016,9,1),
                     LieferantName = "Döner um die Ecke",
                     Nummer = "2",                
-                    Preis = 3.50   
+                    Preis = 100
                },
                new EingangsRechnung {
                     Datum = new DateTime(2016,8,2),
