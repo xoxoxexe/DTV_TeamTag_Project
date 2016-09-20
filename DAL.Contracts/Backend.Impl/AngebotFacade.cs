@@ -26,6 +26,7 @@ namespace Backend.Impl
             using(var context = new teamtageEntities())
             {
                 context.Angebote.Add(new DAL.Impl.Angebote() { Angebotsnummer = angebot.Id.ToString(), Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen), Betreff = angebot.Betreff, Datum = angebot.Datum, KundeID = angebot.KundeId, ID = angebot.Id });
+                context.SaveChanges();
             }
         }
 

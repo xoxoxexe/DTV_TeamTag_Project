@@ -241,6 +241,7 @@
     <Content Include="Views\Kunden\Create.cshtml" />
     <Content Include="Views\Angebot\List.cshtml" />
     <Content Include="Views\Angebot\Create.cshtml" />
+    <Content Include="Views\Kunden\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -259,7 +260,7 @@
       <Name>Backend.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Backend.Impl\Backend.Impl.csproj">
-      <Project>{F80E9166-C8DC-4CA7-A27D-63ACFEC7EC6C}</Project>
+      <Project>{f80e9166-c8dc-4ca7-a27d-63acfec7ec6c}</Project>
       <Name>Backend.Impl</Name>
     </ProjectReference>
   </ItemGroup>

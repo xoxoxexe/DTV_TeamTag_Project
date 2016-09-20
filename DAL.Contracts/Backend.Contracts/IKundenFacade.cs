@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Backend.Contracts
 {
@@ -7,5 +8,7 @@ namespace Backend.Contracts
         void Save(Kunde kunde);
 
         IEnumerable<Kunde> GetKunden();
+
+        Kunde GetKunde(Guid guid);
     }
 }
