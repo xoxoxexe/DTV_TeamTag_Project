@@ -17,6 +17,6 @@ namespace Backend.Contracts
 
         public string Betreff { get; set; }
 
-        public string AngebotsNummer { get; set; }
+        public int AngebotsNummer { get; set; }
     }
 }

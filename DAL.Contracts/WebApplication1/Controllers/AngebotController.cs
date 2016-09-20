@@ -21,19 +21,12 @@ namespace WebApplication1.Controllers
 
        public ActionResult List()
         {
-
-            List<Angebot> angebote = new List<Angebot>
-            {
-                new Angebot
-                {
-                    //Id = 1,
-                    //KundeId = 2,
-                    Gesamt = 3000,
-                    Datum = DateTime.Now
-                }
-            };
+            //IAngebotFacade angebotFacade;
+            List<Angebot> angebote;
 
             IAngebotFacade angebotFacade = new AngebotFacade();
+
+            //IAngebotFacade angebotFacade = new AngebotFacade();
 
             angebote = angebotFacade.GetAngebote().ToList();
 
@@ -43,14 +36,26 @@ namespace WebApplication1.Controllers
 
         public ActionResult Create()
         {
+            // Alle Kunden
+            LoadKunden();
             return View();
         }
 
         [HttpPost]
         public ActionResult Create( Angebot angebot )
         {
+            IAngebotFacade angebotFacade = new AngebotFacade();
+            angebotFacade.Save(angebot);
+            LoadKunden();
             return View();
         }
 
+
+        private void LoadKunden()
+        {
+            IKundenFacade kundenFacade = new KundenFacade();
+            IEnumerable<Kunde> alleKunden = kundenFacade.GetKunden();
+            ViewBag.AlleKunden = alleKunden;
+        }
     }
 }

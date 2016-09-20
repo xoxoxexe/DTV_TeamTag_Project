@@ -10,9 +10,11 @@
 
 </head>
 <body>
-    <div style="height:100px;width:100%">
-        <img src="" style="border:1px;height:20px;width:30px"/>
-    </div>
+    <div class="container body-content" style="height:100px;">
+        <a href='@Url.Action("Index", "Home")'>
+            <img src="../design/kalkool_logo.png" style="vertical-align:top" />
+        </a>
+</div>
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -25,7 +27,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Kunden", "Index", "Kunden")</li>
-                    <li>@Html.ActionLink("Angebot", "Index", "Angebot")</li>
+                    <li>@Html.ActionLink("Angebot", "List", "Angebot")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
