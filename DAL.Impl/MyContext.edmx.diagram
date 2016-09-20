@@ -8,9 +8,12 @@
         <EntityTypeShape EntityType="teamtageModel.Angebote" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="teamtageModel.Angebotspositionen" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="teamtageModel.Kunden" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="teamtageModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="teamtageModel.FK_Angebote_Kunden" ManuallyRouted="false" />
         <AssociationConnector Association="teamtageModel.FK_Angebotspositionen_Angebote" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="teamtageModel.Rechnungen" Width="1.5" PointX="4.875" PointY="4.125" />
+        <EntityTypeShape EntityType="teamtageModel.Rechnungspositionen" Width="1.5" PointX="7.125" PointY="4.375" />
+        <AssociationConnector Association="teamtageModel.FK_Rechnungen_Kunden" />
+        <AssociationConnector Association="teamtageModel.FK_Rechnungspositionen_Rechnungen" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

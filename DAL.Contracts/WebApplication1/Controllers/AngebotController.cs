@@ -21,16 +21,9 @@ namespace WebApplication1.Controllers
 
        public ActionResult List()
         {
-            //IAngebotFacade angebotFacade;
             List<Angebot> angebote;
-
-            IAngebotFacade angebotFacade = new AngebotFacade();
-
-            //IAngebotFacade angebotFacade = new AngebotFacade();
-
+            IAngebotFacade angebotFacade = new AngebotFacade();   
             angebote = angebotFacade.GetAngebote().ToList();
-
-
             return View( angebote );
         }
 

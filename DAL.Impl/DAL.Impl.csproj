@@ -76,7 +76,10 @@
       <DependentUpon>MyContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="Rechnungen.cs">
+      <DependentUpon>MyContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rechnungspositionen.cs">
       <DependentUpon>MyContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
