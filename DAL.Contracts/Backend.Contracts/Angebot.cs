@@ -5,9 +5,9 @@ namespace Backend.Contracts
 {
     public class Angebot
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int KundeId { get; set; }
+        public Guid KundeId { get; set; }
 
         public IEnumerable<Position> Positionen { get; set; }
 
@@ -16,5 +16,7 @@ namespace Backend.Contracts
         public DateTime Datum { get; set; }
 
         public string Betreff { get; set; }
+
+        public string AngebotsNummer { get; set; }
     }
 }

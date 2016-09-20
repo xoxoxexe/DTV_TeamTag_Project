@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Backend.Impl;
 
 namespace WebApplication1.Controllers
 {
@@ -28,6 +29,10 @@ namespace WebApplication1.Controllers
                     Telefon = "0911-1231438"
                 },
             };
+
+            //IKundenFacade kundenFacade = new KundenFacade();
+            //kunden = kundenFacade.GetKunden();
+
             return View( kunden );
         }
 
@@ -54,14 +59,26 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Kunden/Edit/5
-        public ActionResult Edit( int id )
+        public ActionResult Edit( Guid id )
         {
-            return View();
+            // Kunden-Datensatz anhand der ID aus dem Backend holen
+
+            Kunde kunde = new Kunde
+            {
+                Id = new Guid(),
+                Email = "ask@me.com",
+                Strasse = "Flurstraße 12",
+                Name = "Peter Pan",
+                Ort = "Nürnberg",
+                Plz = "90409",
+                Telefon = "0911-1231438"
+            };
+            return View( kunde );
         }
 
         // POST: Kunden/Edit/5
         [HttpPost]
-        public ActionResult Edit( int id, FormCollection collection )
+        public ActionResult Edit( Guid id, Kunde kunde )
         {
             try
             {
