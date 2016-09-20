@@ -24,7 +24,10 @@ namespace Backend.Impl
 
         void IKundenFacade.Save(Kunde kunde)
         {
-            throw new NotImplementedException();
+            using (var context = new teamtageEntities())
+            {
+                context.Kunden.Add(new Kunden() { Email = kunde.Email, Name = kunde.Name, Ort = kunde.Ort, Plz = kunde.Plz, Strasse = kunde.Strasse, Tel = kunde.Telefon });
+            }
         }
     }
 }

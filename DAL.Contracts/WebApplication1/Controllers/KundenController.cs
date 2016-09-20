@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Backend.Impl;
 
 namespace WebApplication1.Controllers
 {
@@ -19,7 +20,7 @@ namespace WebApplication1.Controllers
             IEnumerable<Kunde> kunden = new Collection<Kunde>
             {
                 new Kunde {
-                    Id = 1,
+                    Id = new Guid(),
                     Email = "ask@me.com",
                     Strasse = "Flurstraße 12",
                     Name = "Peter Pan",
@@ -28,6 +29,10 @@ namespace WebApplication1.Controllers
                     Telefon = "0911-1231438"
                 },
             };
+
+            //IKundenFacade kundenFacade = new KundenFacade();
+            //kunden = kundenFacade.GetKunden();
+
             return View( kunden );
         }
 
