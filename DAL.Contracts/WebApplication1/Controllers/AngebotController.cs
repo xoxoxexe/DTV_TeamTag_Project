@@ -26,12 +26,18 @@ namespace WebApplication1.Controllers
             {
                 new Angebot
                 {
-                    Id = 1,
-                    KundeId = 2,
+                    //Id = 1,
+                    //KundeId = 2,
                     Gesamt = 3000,
                     Datum = DateTime.Now
                 }
             };
+
+            //IAngebotFacade angebotFacade = new AngebotFacade();
+
+            //angebote = angebotFacade.GetAngebote().ToList();
+
+           
             return View( angebote );
         }
 

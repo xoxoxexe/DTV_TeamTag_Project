@@ -262,10 +262,6 @@
       <Project>{F80E9166-C8DC-4CA7-A27D-63ACFEC7EC6C}</Project>
       <Name>Backend.Impl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DAL.Contracts\DAL.Contracts.csproj">
-      <Project>{6b5fc7ef-81e1-4be9-ac72-7d1a935fbd6d}</Project>
-      <Name>DAL.Contracts</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
