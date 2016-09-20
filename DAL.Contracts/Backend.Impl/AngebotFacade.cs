@@ -36,6 +36,43 @@ namespace Backend.Impl
             return allAngebote;
         }
 
+
+        private ICollection<Rechnungspositionen> MapPositions(IEnumerable<Angebotspositionen> angebotspositionens )
+        {
+            List<Rechnungspositionen> rechnungspositionens = new List<Rechnungspositionen>();
+
+            foreach (Angebotspositionen angebotspositionen in angebotspositionens)
+            {
+                rechnungspositionens.Add(new Rechnungspositionen()
+                {
+                    Freitext = angebotspositionen.Freitext,
+                    Preis = (decimal) angebotspositionen.Reis,
+                });
+            }
+
+            return rechnungspositionens;
+        }
+
+        void IAngebotFacade.CreateBill(Angebot angebot)
+        {
+            Rechnungen rechnung = new Rechnungen();
+
+
+            using (var context = new teamtageEntities1())
+            {
+                Angebote foundAngebot = context.Angebote.Find(angebot);
+
+                rechnung = new Rechnungen()
+                {
+                    Betreff = foundAngebot.Betreff,
+                    Erstellungsdatum = DateTime.Now,
+                    Kunden = foundAngebot.Kunden,
+                    KundeID = foundAngebot.KundeID,
+                    Rechnungspositionen = MapPositions(foundAngebot.Angebotspositionen)
+                };
+            }
+        }
+
         void IAngebotFacade.Save(Angebot angebot)
         {
             using (var context = new teamtageEntities1())
