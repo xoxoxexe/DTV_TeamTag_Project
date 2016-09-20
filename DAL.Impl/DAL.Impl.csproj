@@ -89,6 +89,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="db.bak" />
     <None Include="MyContext.edmx.diagram">
       <DependentUpon>MyContext.edmx</DependentUpon>
     </None>
