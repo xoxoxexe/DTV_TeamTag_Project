@@ -24,7 +24,7 @@ namespace DAL.Impl
         public System.Guid KundeID { get; set; }
         public System.DateTime Datum { get; set; }
         public string Betreff { get; set; }
-        public int Angebotsnummer { get; set; }
+        public int Angebosnummer { get; set; }
     
         public virtual Kunden Kunden { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -23,11 +23,11 @@ namespace Backend.Impl
 
 
             List<Angebot> allAngebote = new List<Angebot>();
-            using (var context = new teamtageEntities())
+            using (var context = new teamtageEntities1())
             {
                 foreach (Angebote angebot in context.Angebote)
                 {
-                    allAngebote.Add(new Angebot() { AngebotsNummer = angebot.Angebotsnummer, Betreff = angebot.Betreff, Datum = angebot.Datum, Id = angebot.ID, KundeId = angebot.KundeID, Positionen = MapDalAngebotsPositionenToBackend(angebot.Angebotspositionen), Gesamt = GetAngebotGesamtpreis(angebot.Angebotspositionen) });
+                    allAngebote.Add(new Angebot() { Betreff = angebot.Betreff, Datum = angebot.Datum, Id = angebot.ID, KundeId = angebot.KundeID, Positionen = MapDalAngebotsPositionenToBackend(angebot.Angebotspositionen), Gesamt = GetAngebotGesamtpreis(angebot.Angebotspositionen) });
                 }
             }
             return allAngebote;
@@ -36,9 +36,9 @@ namespace Backend.Impl
         void IAngebotFacade.Save(Angebot angebot)
         {
 
-            using (var context = new teamtageEntities())
+            using (var context = new teamtageEntities1())
             {
-                context.Angebote.Add(new Angebote() { Angebotsnummer = angebot.AngebotsNummer, Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen), Betreff = angebot.Betreff, Datum = angebot.Datum, KundeID = angebot.KundeId, ID = angebot.Id });
+                context.Angebote.Add(new Angebote() {  Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen), Betreff = angebot.Betreff, Datum = angebot.Datum, KundeID = angebot.KundeId, ID = angebot.Id });
                 context.SaveChanges();
             }
         }

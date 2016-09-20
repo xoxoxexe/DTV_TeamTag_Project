@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3c7c53a72b6246c199a99d841b66378c" Name="Diagram1">
-        <EntityTypeShape EntityType="Models.Angebote" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Angebotspositionen" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Models.Kunden" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="Models.FK_Angebote_Kunden" ManuallyRouted="false" />
-        <AssociationConnector Association="Models.FK_Angebotspositionen_Angebote" ManuallyRouted="false" />
+      <Diagram DiagramId="548c96e951ef4b25b6448a95959f58b8" Name="Diagram1">
+        <EntityTypeShape EntityType="teamtageModel.Angebote" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="teamtageModel.Angebotspositionen" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="teamtageModel.Kunden" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="teamtageModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="teamtageModel.FK_Angebote_Kunden" ManuallyRouted="false" />
+        <AssociationConnector Association="teamtageModel.FK_Angebotspositionen_Angebote" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

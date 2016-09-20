@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="teamtageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Angebote">
           <Key>
             <PropertyRef Name="ID" />
@@ -37,6 +37,16 @@
           <Property Name="Email" Type="nvarchar" MaxLength="500" />
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <Association Name="FK_Angebote_Kunden">
           <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
           <End Role="Angebote" Type="Self.Angebote" Multiplicity="*" />
@@ -61,10 +71,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ModelsStoreContainer">
+        <EntityContainer Name="teamtageModelStoreContainer">
           <EntitySet Name="Angebote" EntityType="Self.Angebote" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Angebotspositionen" EntityType="Self.Angebotspositionen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kunden" EntityType="Self.Kunden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Angebote_Kunden" Association="Self.FK_Angebote_Kunden">
             <End Role="Kunden" EntitySet="Kunden" />
             <End Role="Angebote" EntitySet="Angebote" />
@@ -74,10 +85,11 @@
             <End Role="Angebotspositionen" EntitySet="Angebotspositionen" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="teamtageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Angebote">
           <Key>
             <PropertyRef Name="ID" />
@@ -85,10 +97,10 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <Property Name="KundeID" Type="Guid" Nullable="false" />
           <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Betreff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Angebosnummer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Kunden" Relationship="Self.FK_Angebote_Kunden" FromRole="Angebote" ToRole="Kunden" />
           <NavigationProperty Name="Angebotspositionen" Relationship="Self.FK_Angebotspositionen_Angebote" FromRole="Angebote" ToRole="Angebotspositionen" />
-          <Property Name="Betreff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Angebotsnummer" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Angebotspositionen">
           <Key>
@@ -114,6 +126,16 @@
           <Property Name="ID" Type="Guid" Nullable="false" />
           <NavigationProperty Name="Angebote" Relationship="Self.FK_Angebote_Kunden" FromRole="Kunden" ToRole="Angebote" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <Association Name="FK_Angebote_Kunden">
           <End Role="Kunden" Type="Self.Kunden" Multiplicity="1" />
           <End Role="Angebote" Type="Self.Angebote" Multiplicity="*" />
@@ -138,10 +160,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="teamtageEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="teamtageEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Angebote" EntityType="Self.Angebote" />
           <EntitySet Name="Angebotspositionen" EntityType="Self.Angebotspositionen" />
           <EntitySet Name="Kunden" EntityType="Self.Kunden" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <AssociationSet Name="FK_Angebote_Kunden" Association="Self.FK_Angebote_Kunden">
             <End Role="Kunden" EntitySet="Kunden" />
             <End Role="Angebote" EntitySet="Angebote" />
@@ -156,19 +179,20 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="teamtageEntities">
+        <EntityContainerMapping StorageEntityContainer="teamtageModelStoreContainer" CdmEntityContainer="teamtageEntities1">
           <EntitySetMapping Name="Angebote">
-            <EntityTypeMapping TypeName="Models.Angebote">
+            <EntityTypeMapping TypeName="teamtageModel.Angebote">
               <MappingFragment StoreEntitySet="Angebote">
-                <ScalarProperty Name="Betreff" ColumnName="Betreff" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KundeID" ColumnName="KundeID" />
                 <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Betreff" ColumnName="Betreff" />
+                <ScalarProperty Name="Angebosnummer" ColumnName="Angebosnummer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Angebotspositionen">
-            <EntityTypeMapping TypeName="Models.Angebotspositionen">
+            <EntityTypeMapping TypeName="teamtageModel.Angebotspositionen">
               <MappingFragment StoreEntitySet="Angebotspositionen">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AngebotID" ColumnName="AngebotID" />
@@ -178,7 +202,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Kunden">
-            <EntityTypeMapping TypeName="Models.Kunden">
+            <EntityTypeMapping TypeName="teamtageModel.Kunden">
               <MappingFragment StoreEntitySet="Kunden">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Plz" ColumnName="Plz" />
@@ -188,6 +212,17 @@
                 <ScalarProperty Name="Tel" ColumnName="Tel" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="teamtageModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

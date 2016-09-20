@@ -1,0 +1,8 @@
+﻿a.editButton
+{
+    background: url(../Design/Icon_Stift-04.png) no-repeat;
+     display: block;
+     width: 25px;
+     height: 25px;
+     text-indent: -9999px; /* hides the link text */
+}}
