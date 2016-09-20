@@ -1,0 +1,76 @@
+﻿@model WebApplication1.Models.Finanzen
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AktuellerSaldo)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.AktuellerSaldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.Rechnungen.First().Datum )
+        </th>
+        <th>
+            @Html.DisplayNameFor( model => model.AktuellerSaldo)
+        </th>
+    </tr>
+
+@       __o = Html.DisplayNameFor( model => model.Rechnungen.First().Datum );
+
+
+#line default
+#line hidden
+
+#line 6 "D:\Data\Git\DTV_TeamTag_Project\DAL.Contracts\WebApplication1\Views\Finanzverwaltung\Index.cshtml"
+__o = Html.DisplayNameFor( model => model.Rechnungen.First().Nummer );
+
+
+#line default
+#line hidden
+
+#line 7 "D:\Data\Git\DTV_TeamTag_Project\DAL.Contracts\WebApplication1\Views\Finanzverwaltung\Index.cshtml"
+__o = Html.DisplayNameFor( model => model.Rechnungen.First().Preis );
+
+
+#line default
+#line hidden
+
+#line 8 "D:\Data\Git\DTV_TeamTag_Project\DAL.Contracts\WebApplication1\Views\Finanzverwaltung\Index.cshtml"
+__o = Html.DisplayFor( model => model.AktuellerSaldo );
+
+
+#line default
+#line hidden
+
+#line 9 "D:\Data\Git\DTV_TeamTag_Project\DAL.Contracts\WebApplication1\Views\Finanzverwaltung\Index.cshtml"
+foreach ( var item in Model.Rechnungen )
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Datum)
+        </td>
+        <td>
+            @Html.DisplayFor( modelItem => item.Datum )
+        </td>
+        <td>
+            @Html.DisplayFor( modelItem => item.Nummer )
+        </td>
+        <td>
+            @Html.DisplayFor( modelItem => item.Preis )
+        </td>
+    </tr>Model.PrimaryKey */ });
+
+
+#line default
+#line hidden
+
+#line 12 "D:\Data\Git\DTV_TeamTag_Project\DAL.Contracts\WebApplication1\Views\Finanzverwaltung\Index.cshtml"
+}
+
+</table>

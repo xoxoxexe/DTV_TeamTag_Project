@@ -176,6 +176,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Finanzen.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,10 +254,11 @@
     <Content Include="Views\Kunden\Edit.cshtml" />
     <Content Include="Views\Angebot\PdfAction.cshtml" />
     <Content Include="Views\Angebot\MailAction.cshtml" />
+    <Content Include="Views\Finanzverwaltung\_Index.cshtml" />
+    <Content Include="Views\Finanzverwaltung\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Finanzverwaltung\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
