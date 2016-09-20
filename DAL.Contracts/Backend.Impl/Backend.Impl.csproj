@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AngebotFacade.cs" />
+    <Compile Include="AusgangsRechnungFacade.cs" />
+    <Compile Include="FakeEingangsRechnungFacade.cs" />
     <Compile Include="KundenFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
