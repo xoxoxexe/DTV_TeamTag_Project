@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Backend.Contracts;
 using DAL.Impl;
 
@@ -24,12 +25,6 @@ namespace Backend.Impl
 
             using (var context = new teamtageEntities())
             {
-
-                //Bereits vorhandene ANgebote holen
-                //IEnumerable<Angebote> vorhandeneAngebote = context.Angebote.Find(angebot.KundeId);
-                //Anzahl Angebote +1 = neue Angebotsnummer
-
-
                 context.Angebote.Add(new Angebote() { Angebotsnummer = angebot.AngebotsNummer, Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen), Betreff = angebot.Betreff, Datum = angebot.Datum, KundeID = angebot.KundeId, ID = angebot.Id });
                 context.SaveChanges();
             }
