@@ -16,16 +16,15 @@ namespace BackendImpl.Test
         {
             IKundenFacade kundenFacade = new KundenFacade();
 
-             Kunde kunde = kundenFacade.GetKunden().First();
+            Kunde kunde = kundenFacade.GetKunden().First();
 
             kunde.Email = "geänderte Email";
 
             kundenFacade.Save(kunde);
 
-            IEnumerable < Kunde > kundenListe = kundenFacade.GetKunden();
+            IEnumerable<Kunde> kundenListe = kundenFacade.GetKunden();
 
             Assert.IsTrue(true);
-
         }
     }
 }
