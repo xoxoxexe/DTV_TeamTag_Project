@@ -40,7 +40,17 @@ namespace Backend.Impl
         {
             using (var context = new teamtageEntities1())
             {
-                context.Angebote.Add(new Angebote() {Angebosnummer = angebot.AngebotsNummer ,Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen), Betreff = angebot.Betreff, Datum = angebot.Datum, KundeID = angebot.KundeId });
+                Angebote neuesangebot = new Angebote()
+                {
+                    Angebosnummer = angebot.AngebotsNummer,
+                    Angebotspositionen = MapBackendAngebotsPositionenToDal(angebot.Positionen),
+                    Betreff = angebot.Betreff,
+                    Datum = angebot.Datum,
+                    KundeID = angebot.KundeId,
+                    ID = Guid.NewGuid()
+                };
+
+                context.Angebote.Add(neuesangebot);
                 context.SaveChanges();
             }
         }
@@ -70,7 +80,7 @@ namespace Backend.Impl
             
             foreach (Position positionen in angebotsPositionen)
             {
-                mappedDalPositionen.Add(new Angebotspositionen { Freitext = positionen.Freitext, Reis = (decimal)positionen.Preis });
+                mappedDalPositionen.Add(new Angebotspositionen { Freitext = positionen.Freitext,ID = Guid.NewGuid(),AngebotID = Guid.NewGuid(), Reis = (decimal)positionen.Preis });
             }
             return mappedDalPositionen;
         }

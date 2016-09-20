@@ -2,7 +2,7 @@
 @model List<Angebot>
 
 <h1>ANGEBOTSÜBERSICHT</h1>
-<a href="">+ neu</a>
+<a href='@Url.Action("Create", "Angebot")'>+ neu</a>
 <table>
     <tr>
         <th>ANGEBOTSNUMMER / BETREFF</th>
@@ -15,8 +15,11 @@
     {
         <tr>
         <td>
-            @angebot.Id
-            @angebot.Betreff
+            @angebot.AngebotsNummer<br />
+            @foreach (Position p in angebot.Positionen)
+            {
+                <span>@p.Freitext</span><span>@p.Preis</span>                
+            }
         </td>
         <td>@GetKundeById(angebot.KundeId)</td>
             <td>@angebot.Datum</td>
