@@ -12,7 +12,7 @@ namespace Backend.Impl
         IEnumerable<Kunde> IKundenFacade.GetKunden()
         {
             List<Kunde> listKunde = new List<Kunde>();
-            using (var context = new teamtageEntities())
+            using (var context = new teamtageEntities1())
             {
                 foreach (Kunden kunde in context.Kunden)
                 {
@@ -35,7 +35,7 @@ namespace Backend.Impl
         public Kunde GetKunde(Guid guid)
         {
             Kunde mappedKunde;
-            using (var context = new teamtageEntities())
+            using (var context = new teamtageEntities1())
             {
                 Kunden kunde = context.Kunden.Find(guid);
 
@@ -55,7 +55,7 @@ namespace Backend.Impl
 
         void IKundenFacade.Save(Kunde kunde)
         {
-            using (var context = new teamtageEntities())
+            using (var context = new teamtageEntities1())
             {
                 Kunden foundKunde = context.Kunden.Find(kunde);
                 foundKunde.Email = kunde.Email;

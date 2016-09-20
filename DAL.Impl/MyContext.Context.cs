@@ -13,10 +13,10 @@ namespace DAL.Impl
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class teamtageEntities : DbContext
+    public partial class teamtageEntities1 : DbContext
     {
-        public teamtageEntities()
-            : base("name=teamtageEntities")
+        public teamtageEntities1()
+            : base("name=teamtageEntities1")
         {
         }
     
@@ -28,5 +28,6 @@ namespace DAL.Impl
         public virtual DbSet<Angebote> Angebote { get; set; }
         public virtual DbSet<Angebotspositionen> Angebotspositionen { get; set; }
         public virtual DbSet<Kunden> Kunden { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }
