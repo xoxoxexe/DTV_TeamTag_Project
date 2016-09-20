@@ -12,9 +12,9 @@ namespace BackendImpl.Test
     /// Summary description for AngebotFacadeTest
     /// </summary>
     [TestClass]
-    public class AusgansRechnungenFacadeTest
+    public class FinazenFacadeTest
     {
-        public AusgansRechnungenFacadeTest()
+        public FinazenFacadeTest()
         {
             //
             // TODO: Add constructor logic here
@@ -22,9 +22,9 @@ namespace BackendImpl.Test
         }
 
         [TestMethod]
-        public void TestRechungenAuslesen() {
-            var facade = new AusgangsRechnungFacade();
-            var rechnungen = facade.GetAusgangsRechnungen();
+        public void TestFinazenFacadeTest() {
+            var facade = new FinanzenFacade();
+            var rechnungen = facade.GetFinanzUebersicht();
             Assert.IsTrue(rechnungen.Any());
         }
 
@@ -50,7 +50,6 @@ namespace BackendImpl.Test
         // public void MyTestCleanup() { }
         //
         #endregion
-
 
     }
 }

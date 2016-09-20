@@ -42,10 +42,12 @@
   <ItemGroup>
     <Compile Include="Angebot.cs" />
     <Compile Include="AusgangsRechnung.cs" />
+    <Compile Include="FinanzenPosition.cs" />
     <Compile Include="IAngebotFacade.cs" />
     <Compile Include="EingangsRechnung.cs" />
     <Compile Include="IAusgangsRechnungFacade.cs" />
     <Compile Include="IEingangsRechnungFacade.cs" />
+    <Compile Include="IFinanzenFacade.cs" />
     <Compile Include="Kunde.cs" />
     <Compile Include="IKundenFacade.cs" />
     <Compile Include="Position.cs" />
