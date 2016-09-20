@@ -82,6 +82,12 @@ namespace WebApplication1.Controllers
         public ActionResult RechnungErzeugen(String  angebotId)
         {
 
+            IAngebotFacade angebotFacade = new AngebotFacade();
+
+            angebotFacade.CreateBill(new Angebot
+            {
+                Id = Guid.Parse(angebotId)
+            });
 
             return List();
         }
