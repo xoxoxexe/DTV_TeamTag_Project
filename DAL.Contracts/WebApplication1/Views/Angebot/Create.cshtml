@@ -1,4 +1,14 @@
 ﻿@using Backend.Contracts;
+
+<script>
+    var count=0;
+    function  addNewLine()
+    {
+        count++;
+        $( ".position" ).append( '<br><input type="text" name="Positionen['+count+'].Freitext" /> <input type="text" name="Positionen[' +count+'].Preis" /></br>' );
+    }
+    
+</script>
 <form method="post" name="angebote">
     <h1>NEUES ANGEBOT</h1>
     <h3>Kunde</h3>
@@ -10,8 +20,11 @@
     </select>
     <br />
     Freitext / Preis:<br />
-
-    <input type="text" name="position1" /> <input type="text" name="preis1" />
+    
+    <section class="position">
+        <br ><input type="text" name="Positionen[0].Freitext" /> <input type="text" name="Positionen[0].Preis" /> <a href="javascript:addNewLine()">+</a></br>
+    
+    </section>
 
     <br />
     Gesamt: 2500€<br />

@@ -15,8 +15,11 @@
     {
         <tr>
         <td>
-            @angebot.Id
-            @angebot.Betreff
+            @angebot.AngebotsNummer<br />
+            @foreach (Position p in angebot.Positionen)
+            {
+                <span>@p.Freitext</span><span>@p.Preis</span>                
+            }
         </td>
         <td>@GetKundeById(angebot.KundeId)</td>
             <td>@angebot.Datum</td>
