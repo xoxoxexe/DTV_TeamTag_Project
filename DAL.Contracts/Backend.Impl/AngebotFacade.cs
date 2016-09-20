@@ -26,7 +26,7 @@ namespace Backend.Impl
 
                 foreach (Angebote angebot in context.Angebote)
                 {
-                    allAngebote.Add(new Angebot() { Betreff = angebot.Betreff, Datum = angebot.Datum, Id = angebot.ID, KundeId = angebot.KundeID, Positionen = MapDalAngebotsPositionenToBackend(angebot.Angebotspositionen), Gesamt = GetAngebotGesamtpreis(angebot.Angebotspositionen) });
+                    allAngebote.Add(new Angebot() { Betreff = angebot.Betreff, Datum = angebot.Datum, Id = angebot.ID, KundeId = angebot.KundeID, Positionen = MapDalAngebotsPositionenToBackend(angebot.Angebotspositionen), Gesamt = GetAngebotGesamtpreis(angebot.Angebotspositionen), AngebotsNummer = angebot.Angebosnummer});
                     //allAngebote.Add(mapper.Map(angebot, new Angebot()));
 
                     //Angebot mappedAngebot = mapper.Map<Angebot>(angebot);
