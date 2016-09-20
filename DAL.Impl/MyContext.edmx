@@ -12,8 +12,8 @@
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="KundeID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Datum" Type="datetime" Nullable="false" />
-          <Property Name="Angebotsnummer" Type="nvarchar" MaxLength="500" />
           <Property Name="Betreff" Type="nvarchar" MaxLength="500" />
+          <Property Name="Angebosnummer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="Angebotspositionen">
           <Key>
@@ -87,8 +87,8 @@
           <Property Name="Datum" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Kunden" Relationship="Self.FK_Angebote_Kunden" FromRole="Angebote" ToRole="Kunden" />
           <NavigationProperty Name="Angebotspositionen" Relationship="Self.FK_Angebotspositionen_Angebote" FromRole="Angebote" ToRole="Angebotspositionen" />
-          <Property Name="Angebotsnummer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Betreff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Angebotsnummer" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Angebotspositionen">
           <Key>
@@ -161,7 +161,6 @@
             <EntityTypeMapping TypeName="Models.Angebote">
               <MappingFragment StoreEntitySet="Angebote">
                 <ScalarProperty Name="Betreff" ColumnName="Betreff" />
-                <ScalarProperty Name="Angebotsnummer" ColumnName="Angebotsnummer" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KundeID" ColumnName="KundeID" />
                 <ScalarProperty Name="Datum" ColumnName="Datum" />
