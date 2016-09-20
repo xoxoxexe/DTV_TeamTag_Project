@@ -57,7 +57,7 @@ namespace Backend.Impl
         {
             using (var context = new teamtageEntities1())
             {
-                Kunden foundKunde = context.Kunden.Find(kunde);
+                Kunden foundKunde = context.Kunden.Find(kunde.Id);
                 foundKunde.Email = kunde.Email;
                 foundKunde.ID = kunde.Id;
                 foundKunde.Name = kunde.Name;
