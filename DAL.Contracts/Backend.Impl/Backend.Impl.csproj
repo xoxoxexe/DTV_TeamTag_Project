@@ -55,7 +55,6 @@
   <ItemGroup>
     <Compile Include="AngebotFacade.cs" />
     <Compile Include="KundenFacade.cs" />
-    <Compile Include="MapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
