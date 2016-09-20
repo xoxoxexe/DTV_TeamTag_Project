@@ -241,6 +241,7 @@
     <Content Include="Views\Kunden\Create.cshtml" />
     <Content Include="Views\Angebot\List.cshtml" />
     <Content Include="Views\Angebot\Create.cshtml" />
+    <Content Include="Views\Kunden\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
