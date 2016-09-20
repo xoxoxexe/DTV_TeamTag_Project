@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using Backend.Contracts;
 using DAL.Impl;
 using System.Linq;
@@ -15,7 +16,16 @@ namespace Backend.Impl
             {
                 foreach (Kunden kunde in context.Kunden)
                 {
-                    listKunde.Add(new Kunde() { Email = kunde.Email, Id = kunde.ID, Name = kunde.Name, Ort = kunde.Ort, Plz = kunde.Plz, Strasse = kunde.Strasse, Telefon = kunde.Tel });
+                    listKunde.Add(new Kunde()
+                    {
+                        Email = kunde.Email,
+                        Id = kunde.ID,
+                        Name = kunde.Name,
+                        Ort = kunde.Ort,
+                        Plz = kunde.Plz,
+                        Strasse = kunde.Strasse,
+                        Telefon = kunde.Tel
+                    });
                 }
             }
 
@@ -47,7 +57,14 @@ namespace Backend.Impl
         {
             using (var context = new teamtageEntities())
             {
-                context.Kunden.Add(new Kunden() { Email = kunde.Email, Name = kunde.Name, Ort = kunde.Ort, Plz = kunde.Plz, Strasse = kunde.Strasse, Tel = kunde.Telefon });
+                Kunden foundKunde = context.Kunden.Find(kunde);
+                foundKunde.Email = kunde.Email;
+                foundKunde.ID = kunde.Id;
+                foundKunde.Name = kunde.Name;
+                foundKunde.Ort = kunde.Ort;
+                foundKunde.Strasse = kunde.Strasse;
+                foundKunde.Plz = kunde.Plz;
+                foundKunde.Tel = kunde.Telefon;
                 context.SaveChanges();
             }
         }
