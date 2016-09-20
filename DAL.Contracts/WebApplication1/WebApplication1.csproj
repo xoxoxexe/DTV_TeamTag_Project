@@ -250,6 +250,8 @@
     <Content Include="Views\Angebot\List.cshtml" />
     <Content Include="Views\Angebot\Create.cshtml" />
     <Content Include="Views\Kunden\Edit.cshtml" />
+    <Content Include="Views\Angebot\PdfAction.cshtml" />
+    <Content Include="Views\Angebot\MailAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
