@@ -57,7 +57,6 @@
     <Compile Include="AusgangsRechnungFacade.cs" />
     <Compile Include="FakeEingangsRechnungFacade.cs" />
     <Compile Include="KundenFacade.cs" />
-    <Compile Include="MapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
