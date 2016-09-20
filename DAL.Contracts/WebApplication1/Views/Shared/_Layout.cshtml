@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - kalkool</title>
     @Styles.Render( "~/Content/css" )
     <link rel="stylesheet" href="~/Css/customStyles.css" />
     @Scripts.Render("~/bundles/modernizr")
@@ -12,7 +12,7 @@
 <body>
     <div class="container body-content" style="height:100px;">
         <a href='@Url.Action("Index", "Home")'>
-            <img src="../design/kalkool_logo.png" style="vertical-align:top" />
+            <img src="@Url.Content("~/design/kalkool_logo.png")" />
         </a>
 </div>
     <div class="navbar navbar-inverse navbar-static-top">
@@ -28,6 +28,8 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Kunden", "Index", "Kunden")</li>
                     <li>@Html.ActionLink("Angebot", "List", "Angebot")</li>
+                    <li>@Html.ActionLink( "Rechnung", "List", "Rechnung" )</li>
+                    <li>@Html.ActionLink("Finanzverwaltung", "Index", "Finanzverwaltung")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>

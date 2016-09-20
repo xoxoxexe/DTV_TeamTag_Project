@@ -28,6 +28,7 @@ namespace DAL.Impl
         public virtual DbSet<Angebote> Angebote { get; set; }
         public virtual DbSet<Angebotspositionen> Angebotspositionen { get; set; }
         public virtual DbSet<Kunden> Kunden { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Rechnungen> Rechnungen { get; set; }
+        public virtual DbSet<Rechnungspositionen> Rechnungspositionen { get; set; }
     }
 }
