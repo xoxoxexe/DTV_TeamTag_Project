@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using Backend.Contracts;
 using System.Collections.Generic;
+using Backend.Impl;
 
 namespace WebApplication1.Controllers
 {
@@ -20,7 +21,7 @@ namespace WebApplication1.Controllers
 
        public ActionResult List()
         {
-
+            //IAngebotFacade angebotFacade;
             List<Angebot> angebote = new List<Angebot>
             {
                 new Angebot
@@ -36,6 +37,13 @@ namespace WebApplication1.Controllers
 
         public ActionResult Create()
         {
+            // Alle Kunden
+
+            IKundenFacade kundenFacade = new KundenFacade();
+            IEnumerable<Kunde> alleKunden = kundenFacade.GetKunden();
+
+            ViewBag.AlleKunden = alleKunden;
+
             return View();
         }
 

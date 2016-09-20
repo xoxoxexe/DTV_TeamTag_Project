@@ -170,7 +170,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KundenController.cs" />
-
     <Compile Include="Controllers\AngebotController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,6 +257,10 @@
     <ProjectReference Include="..\Backend.Contracts\Backend.Contracts.csproj">
       <Project>{e8e857f1-2de1-403c-bf6c-c6ce684e09f7}</Project>
       <Name>Backend.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Backend.Impl\Backend.Impl.csproj">
+      <Project>{F80E9166-C8DC-4CA7-A27D-63ACFEC7EC6C}</Project>
+      <Name>Backend.Impl</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL.Contracts\DAL.Contracts.csproj">
       <Project>{6b5fc7ef-81e1-4be9-ac72-7d1a935fbd6d}</Project>

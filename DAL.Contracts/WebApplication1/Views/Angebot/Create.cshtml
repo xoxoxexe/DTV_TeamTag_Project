@@ -1,14 +1,14 @@
 ﻿<h1>NEUES ANGEBOT</h1>
-
-Kunde<br />
+Kunde < br />
+@Html.DropDownList("kunde", ViewBag.AlleKunden as SelectList)
 <select name="customer">
     <option>Kunde 1</option>
     <option>Kunde 2</option>
 </select>
 <br />
-Freitext / Preis:<br />
-<input type="text" name="position1" value="Position 1" /> <input type="text" name="preis1" value="1000" /> <a href="" >+</a><br />
-<input type="text" name="position2" value="Position 2" /> <input type="text" name="preis1" value="1500" /> <br />
+    Freitext / Preis:<br />
+<input type="text" name="position1"  /> <input type="text" name="preis1"  /> <a href="" >+</a><br />
+<input type="text" name="position2"  /> <input type="text" name="preis1" /> <br />
 <br />
 Gesamt: 2500€<br />
 <br />

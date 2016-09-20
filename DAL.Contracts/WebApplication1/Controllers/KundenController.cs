@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
             IEnumerable<Kunde> kunden = new Collection<Kunde>
             {
                 new Kunde {
-                    Id = 1,
+                    Id = new Guid(),
                     Email = "ask@me.com",
                     Strasse = "Flurstraße 12",
                     Name = "Peter Pan",
