@@ -16,12 +16,22 @@
         <tr>
         <td>
             @angebot.Id
-            @angebot.
+            @angebot.Betreff
         </td>
-        <td>@angebot.KundeId</td>
+        <td>@GetKundeById(angebot.KundeId)</td>
             <td>@angebot.Datum</td>
             <td>@angebot.Gesamt</td>
     </tr>
     }
   
 </table>
+
+@functions {
+public string GetKundeById(Guid id)
+        {
+            IKundenFacade facade = new Backend.Impl.KundenFacade();
+            IEnumerable<Kunde> alleKunden = facade.GetKunden();
+            Kunde kunde = alleKunden.First(k => k.Id == id);
+            return kunde.Name;
+        } } 
+

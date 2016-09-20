@@ -1,21 +1,26 @@
-﻿<h1>NEUES ANGEBOT</h1>
+﻿@using Backend.Contracts;
+<form method="post" name="angebote">
+    <h1>NEUES ANGEBOT</h1>
+    <h3>Kunde</h3>
+    <select name="KundeId">
+        @foreach (Kunde k in ViewBag.AlleKunden)
+        {
+            <option value="@k.Id">@k.Name</option>
+        }
+    </select>
+    <br />
+    Freitext / Preis:<br />
 
-Kunde<br />
-<select name="customer">
-    <option>Kunde 1</option>
-    <option>Kunde 2</option>
-</select>
-<br />
-Freitext / Preis:<br />
-<input type="text" name="position1" value="Position 1" /> <input type="text" name="preis1" value="1000" /> <a href="" >+</a><br />
-<input type="text" name="position2" value="Position 2" /> <input type="text" name="preis1" value="1500" /> <br />
-<br />
-Gesamt: 2500€<br />
-<br />
-Datum: <br />
-<input type="text" value="21.6.2016" /><br />
-<br />
-<button>speichern</button><br />
-<button>speichern + pdf</button><br />
-<button>speichern + versenden</button><br />
-<button>abbrechen</button>
+    <input type="text" name="position1" /> <input type="text" name="preis1" />
+
+    <br />
+    Gesamt: 2500€<br />
+    <br />
+    Datum: <br />
+    <input type="text" name="Datum" value="21.6.2016" /><br />
+    <br />
+    <input type="submit">speichern</input><br />
+    <button>speichern + pdf</button><br />
+    <button>speichern + versenden</button><br />
+    <button>abbrechen</button>
+</form>

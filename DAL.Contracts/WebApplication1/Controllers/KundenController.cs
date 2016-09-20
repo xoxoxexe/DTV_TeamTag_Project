@@ -15,24 +15,8 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             // Kundenliste aus dem Backend holen
-            //IKundenFacade kundenFacade = ;
-            //IEnumerable<Kunde> kunden = kundenFacade.GetKunden();
-            IEnumerable<Kunde> kunden = new Collection<Kunde>
-            {
-                new Kunde {
-                    Id = new Guid(),
-                    Email = "ask@me.com",
-                    Strasse = "Flurstraße 12",
-                    Name = "Peter Pan",
-                    Ort = "Nürnberg",
-                    Plz = "90409",
-                    Telefon = "0911-1231438"
-                },
-            };
-
-            //IKundenFacade kundenFacade = new KundenFacade();
-            //kunden = kundenFacade.GetKunden();
-
+            IKundenFacade kundenFacade = new KundenFacade();
+            IEnumerable<Kunde> kunden = kundenFacade.GetKunden();
             return View( kunden );
         }
 
@@ -49,7 +33,8 @@ namespace WebApplication1.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                IKundenFacade kundenFacade = new KundenFacade();
+                kundenFacade.Save(kunde);
                 return RedirectToAction( "Index" );
             }
             catch
@@ -62,17 +47,9 @@ namespace WebApplication1.Controllers
         public ActionResult Edit( Guid id )
         {
             // Kunden-Datensatz anhand der ID aus dem Backend holen
-
-            Kunde kunde = new Kunde
-            {
-                Id = new Guid(),
-                Email = "ask@me.com",
-                Strasse = "Flurstraße 12",
-                Name = "Peter Pan",
-                Ort = "Nürnberg",
-                Plz = "90409",
-                Telefon = "0911-1231438"
-            };
+            IKundenFacade kundenFacade = new KundenFacade();
+            IEnumerable<Kunde> kunden = kundenFacade.GetKunden();
+            Kunde kunde = kunden.SingleOrDefault( x => x.Id == id );
             return View( kunde );
         }
 
@@ -84,9 +61,11 @@ namespace WebApplication1.Controllers
             {
                 // TODO: Add update logic here
 
+                IKundenFacade kundenFacade = new KundenFacade();
+                kundenFacade.Save( kunde );
                 return RedirectToAction( "Index" );
             }
-            catch
+            catch(Exception ex)
             {
                 return View();
             }
