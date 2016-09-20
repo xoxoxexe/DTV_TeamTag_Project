@@ -11,6 +11,17 @@ namespace Backend.Impl
     {
         IEnumerable<Kunde> IKundenFacade.GetKunden()
         {
+
+            //return new List<Kunde>()
+            //{
+            //    new Kunde() {Email = "teamdatev@datev.de", Name = "DatevTEam", Ort = "Nürnberg", Plz = "91522", Telefon = "0911/18383", Strasse = "PaumgartnerStraße"},
+            //    new Kunde() {Email = "teasdasdastev@datev.de", Name = "DatevTEdasdasdasdasdasam", Ort = "Nürnberg", Plz = "91522", Telefon = "0911/18383", Strasse = "PaumgartnerStraße"},
+            //    new Kunde() {Email = "teamdatev@datev.de", Name = "DatevTEam", Ort = "Nürnberg", Plz = "91522", Telefon = "0911/18383", Strasse = "PaumgartnerStraße"},
+            //};
+
+
+
+
             List<Kunde> listKunde = new List<Kunde>();
             using (var context = new teamtageEntities())
             {
@@ -34,6 +45,18 @@ namespace Backend.Impl
 
         public Kunde GetKunde(Guid guid)
         {
+            //return new Kunde()
+            //{
+            //    Email = "teamdatev@datev.de",
+            //    Name = "DatevTEam",
+            //    Ort = "Nürnberg",
+            //    Plz = "91522",
+            //    Telefon = "0911/18383",
+            //    Strasse = "PaumgartnerStraße"
+            //};
+
+
+
             Kunde mappedKunde;
             using (var context = new teamtageEntities())
             {

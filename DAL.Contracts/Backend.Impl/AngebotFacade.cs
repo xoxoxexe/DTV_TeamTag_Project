@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Backend.Contracts;
 using DAL.Impl;
@@ -9,6 +10,18 @@ namespace Backend.Impl
     {
         IEnumerable<Angebot> IAngebotFacade.GetAngebote()
         {
+
+            //return new List<Angebot>()
+            //{
+            //    new Angebot() {AngebotsNummer = 1, Betreff = "SUper Betreff", Datum =  DateTime.Now, Gesamt =  1000, Positionen = new List<Position>() {new Position() {Freitext = "Hier ist freier Text", Preis = 1000} } },
+            //    new Angebot() {AngebotsNummer = 2, Betreff = "Subber Bedreff", Datum =  DateTime.Now, Gesamt =  1000, Positionen = new List<Position>() {new Position() {Freitext = "Hier ist freier Text", Preis = 1000} } },
+            //    new Angebot() {AngebotsNummer = 3, Betreff = "Super Betreff", Datum =  DateTime.Now, Gesamt =  1000, Positionen = new List<Position>() {new Position() {Freitext = "Hier ist freier Text", Preis = 1000} } }
+            //};
+
+
+
+
+
             List<Angebot> allAngebote = new List<Angebot>();
             using (var context = new teamtageEntities())
             {
